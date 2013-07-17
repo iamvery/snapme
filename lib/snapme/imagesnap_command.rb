@@ -7,7 +7,7 @@ module Snapme
     private
 
     def command_name
-      'bin/imagesnap'
+      'imagesnap'
     end
   end
 end
