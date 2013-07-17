@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'snapme'
+Snapme::CLI::Command.start(ARGV.dup)
