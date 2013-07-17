@@ -1,4 +1,4 @@
-module Seeme
+module Snapme
   module Version
     MAJOR = 0
     MINOR = 0
