@@ -1,12 +1,12 @@
 module Snapme
   class ImagesnapCommand
     def call(filename)
-      `#{command} #{filename}`
+      `#{command_name} #{filename}`
     end
 
     private
 
-    def command
+    def command_name
       'bin/imagesnap'
     end
   end
