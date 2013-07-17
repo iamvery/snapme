@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.version       = Snapme::Version
   gem.authors       = ['Jay Hayes']
   gem.email         = ['ur@iamvery.com']
-  gem.description   = %q{}
-  gem.summary       = %q{}
+  gem.description   = %q{Share yourself with your team}
+  gem.summary       = %q{Share yourself with your team}
   gem.homepage      = 'https://github.com/iamvery/snapme'
 
   gem.files         = `git ls-files`.split($/)
