@@ -2,7 +2,7 @@ snapme
 ======
 
 A small daemon process that takes a snapshot of you at a given interval and
-posts it to Snapme!
+posts it to Snapme for all your team to see!
 
 Requrirements
 -------------
