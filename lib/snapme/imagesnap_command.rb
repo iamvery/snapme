@@ -1,7 +1,7 @@
 module Snapme
   class ImagesnapCommand
     def call(filename)
-      `#{command_name} #{filename}`
+      system(command_name, filename)
     end
 
     private
