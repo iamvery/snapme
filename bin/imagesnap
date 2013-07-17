@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-`vendor/imagesnap`
+system 'vendor/imagesnap', *ARGV
