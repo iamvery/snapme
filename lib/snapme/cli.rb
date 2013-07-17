@@ -1,0 +1,1 @@
+require 'snapme/cli/command'
