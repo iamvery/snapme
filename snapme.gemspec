@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Share yourself with your team}
   gem.summary       = %q{Share yourself with your team}
   gem.homepage      = 'https://github.com/iamvery/snapme'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
