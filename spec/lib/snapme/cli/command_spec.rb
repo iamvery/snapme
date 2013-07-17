@@ -8,8 +8,8 @@ describe Snapme::CLI::Command do
     let(:snapper){ double('Snapme::Snapper').as_null_object }
 
     before do
-      Snapme::CLI::Options.stub(parse: options)
-      Snapme::Snapper.stub(new: snapper)
+      allow(Snapme::CLI::Options).to receive(:parse).and_return(options)
+      allow(Snapme::Snapper).to      receive(:new).and_return(snapper)
     end
 
     it 'parses options from the arguments' do
