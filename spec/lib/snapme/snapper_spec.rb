@@ -24,6 +24,7 @@ describe Snapme::Snapper do
       expect(Curl::PostField).to receive(:file)
         .with(snapper.field_name, snapper.filename)
         .and_return(file)
+      expect(curl).to receive(:multipart_form_post=).with(true)
       expect(curl).to receive(:http_post).with(file)
 
       snapper.run(false)

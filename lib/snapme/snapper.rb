@@ -42,7 +42,9 @@ module Snapme
     end
 
     def curl
-      @curl ||= Curl::Easy.new(endpoint_url)
+      @curl ||= Curl::Easy.new(endpoint_url).tap do |curl|
+        curl.multipart_form_post = true
+      end
     end
 
     def file
