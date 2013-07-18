@@ -2,7 +2,7 @@ module Snapme
   module Version
     MAJOR = 0
     MINOR = 1
-    PATCH = 2
+    PATCH = 3
     PRE   = nil
 
     def self.to_s
