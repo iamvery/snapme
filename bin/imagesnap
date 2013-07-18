@@ -1,2 +1,5 @@
 #!/usr/bin/env ruby
-system 'vendor/imagesnap', *ARGV
+#
+gem_dir = File.expand_path('../../', __FILE__)
+command = File.join(gem_dir, 'vendor', 'imagesnap')
+system command, *ARGV
