@@ -23,6 +23,10 @@ module Snapme
       "#{host}/snapshot"
     end
 
+    def field_name
+      'snapshot'
+    end
+
     def filename
       '/tmp/snapshot.jpg'
     end
@@ -48,7 +52,7 @@ module Snapme
     end
 
     def file
-      Curl::PostField.file('snapshot', filename)
+      Curl::PostField.file(field_name, filename)
     end
   end
 end
