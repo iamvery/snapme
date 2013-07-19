@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe Snapme::Snapper do
-  let(:host)    { 'http://example.com' }
-  let(:interval){ double :interval     }
-  let(:command) { double :command      }
+  let(:host)      { 'http://example.com' }
+  let(:interval)  { double :interval     }
+  let(:auth_token){ double :auth_token   }
+  let(:command)   { double :command      }
 
-  subject(:snapper){ described_class.new(host, interval, command) }
+  subject(:snapper){ described_class.new(host, interval, auth_token, command) }
 
   describe '#run' do
     it 'takes a snapshot' do

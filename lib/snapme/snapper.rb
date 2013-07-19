@@ -2,12 +2,13 @@ require 'curb'
 
 module Snapme
   class Snapper
-    attr_reader :command, :host, :interval
+    attr_reader :auth_token, :command, :host, :interval
 
-    def initialize(host, interval, command = ImagesnapCommand.new)
-      @command  = command
-      @host     = host
-      @interval = interval
+    def initialize(host, interval, auth_token = ENV['SNAPME_AUTH_TOKEN'], command = ImagesnapCommand.new)
+      @auth_token = auth_token
+      @command    = command
+      @host       = host
+      @interval   = interval
     end
 
     def run(looping = true)
