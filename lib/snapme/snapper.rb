@@ -20,7 +20,7 @@ module Snapme
     end
 
     def endpoint_url
-      "#{host}/users/1/snapshot"
+      "#{host}/snapshot"
     end
 
     def field_name
