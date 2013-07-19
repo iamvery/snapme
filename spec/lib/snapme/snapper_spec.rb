@@ -22,7 +22,7 @@ describe Snapme::Snapper do
       # object. I'm willing to accept this for now...
       expect(Curl::Easy).to receive(:new).with(snapper.endpoint_url).and_return(curl)
       expect(Curl::PostField).to receive(:file)
-        .with(snapper.field_name, snapper.filename)
+        .with(snapper.file_field_name, snapper.filename)
         .and_return(file)
       expect(curl).to receive(:multipart_form_post=).with(true)
       expect(curl).to receive(:http_post).with(file)

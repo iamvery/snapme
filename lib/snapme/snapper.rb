@@ -23,7 +23,11 @@ module Snapme
       "#{host}/snapshot"
     end
 
-    def field_name
+    def auth_token_field_name
+      'auth_token'
+    end
+
+    def file_field_name
       'snapshot'
     end
 
@@ -51,8 +55,8 @@ module Snapme
       Curl::PostField.content('auth_token', ENV['AUTH_TOKEN'])
     end
 
-    def file
-      Curl::PostField.file(field_name, filename)
+    def file_field
+      Curl::PostField.file(file_field_name, filename)
     end
   end
 end
