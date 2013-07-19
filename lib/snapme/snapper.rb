@@ -34,13 +34,17 @@ module Snapme
     end
 
     def post_snapshot
-      curl.http_post(file)
+      curl.http_post(file, auth_token)
     end
 
     def curl
       @curl ||= Curl::Easy.new(endpoint_url).tap do |curl|
         curl.multipart_form_post = true
       end
+    end
+
+    def auth_token
+      Curl::PostField.content('auth_token', ENV['AUTH_TOKEN'])
     end
 
     def file
