@@ -15,8 +15,9 @@ describe Snapme::Snapper do
 
     it 'posts the snapshot to the web' do
       allow(command).to receive(:call)
-      curl = double 'Curl::Easy'
-      file = double 'Curl::PostField'
+      curl  = double 'Curl::Easy'
+      file  = double 'Curl::PostField - file'
+      token = double 'Curl::PostField - token'
 
       # Hint: The number of mocks here is probably a hint that we're missing an
       # object. I'm willing to accept this for now...
@@ -24,8 +25,11 @@ describe Snapme::Snapper do
       expect(Curl::PostField).to receive(:file)
         .with(snapper.file_field_name, snapper.filename)
         .and_return(file)
+      expect(Curl::PostField).to receive(:content)
+        .with(snapper.auth_token_field_name, auth_token)
+        .and_return(token)
       expect(curl).to receive(:multipart_form_post=).with(true)
-      expect(curl).to receive(:http_post).with(file)
+      expect(curl).to receive(:http_post).with(file, token)
 
       snapper.run(false)
     end

@@ -42,7 +42,7 @@ module Snapme
     end
 
     def post_snapshot
-      curl.http_post(file, auth_token)
+      curl.http_post(file_field, auth_token_field)
     end
 
     def curl
@@ -51,8 +51,8 @@ module Snapme
       end
     end
 
-    def auth_token
-      Curl::PostField.content('auth_token', ENV['AUTH_TOKEN'])
+    def auth_token_field
+      Curl::PostField.content(auth_token_field_name, auth_token)
     end
 
     def file_field
