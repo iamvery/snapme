@@ -4,7 +4,7 @@ module Snapme
   class Snapper
     attr_reader :auth_token, :command, :host, :interval
 
-    def initialize(host, interval, auth_token = ENV['SNAPME_AUTH_TOKEN'], command = ImagesnapCommand.new)
+    def initialize(host, interval, auth_token, command = ImagesnapCommand.new)
       @auth_token = auth_token
       @command    = command
       @host       = host

@@ -6,8 +6,10 @@ describe Snapme::CLI::Command do
     let(:args)   { double :args                             }
     let(:options){ OpenStruct.new                           }
     let(:snapper){ double('Snapme::Snapper').as_null_object }
+    let(:token)  { 'abc123'                                 }
 
     before do
+      ENV['SNAPME_AUTH_TOKEN'] = token
       allow(Snapme::CLI::Options).to receive(:parse).and_return(options)
       allow(Snapme::Snapper).to      receive(:new).and_return(snapper)
     end
@@ -35,7 +37,7 @@ describe Snapme::CLI::Command do
       options.interval = interval
       snapper = double 'Snapme::Snapper'
 
-      expect(Snapme::Snapper).to receive(:new).with(host, interval).and_return(snapper)
+      expect(Snapme::Snapper).to receive(:new).with(host, interval, token).and_return(snapper)
       expect(snapper).to receive(:run)
 
       described_class.start(args)
