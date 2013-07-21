@@ -5,6 +5,11 @@ module Snapme
         options    = Options.parse(args)
         auth_token = ENV['SNAPME_AUTH_TOKEN']
 
+        if options.show_version
+          puts Snapme::Version
+          return
+        end
+
         if auth_token
           Process.daemon(true) if options.daemon
           Snapper.new(options.host, options.interval, auth_token).run
