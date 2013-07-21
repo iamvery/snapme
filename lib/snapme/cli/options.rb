@@ -6,12 +6,13 @@ module Snapme
       DEFAULT_HOST     = 'http://snapme.herokuapp.com'
       DEFAULT_INTERVAL = 30 #seconds
 
-      attr_reader :daemon, :host, :interval
+      attr_reader :daemon, :host, :interval, :show_version
 
-      def initialize(daemon: true, host: DEFAULT_HOST, interval: DEFAULT_INTERVAL)
+      def initialize(daemon: true, host: DEFAULT_HOST, interval: DEFAULT_INTERVAL, show_version: false)
         @daemon   = !!(daemon)
         @host     = host
         @interval = interval.to_i
+        @show_version = show_version
       end
 
       def self.parse(args)
@@ -35,6 +36,10 @@ module Snapme
 
           opts.on('-i', '--interval [SECONDS]', 'Snapshot interval') do |seconds|
             options[:interval] = seconds
+          end
+
+          opts.on('-v', '--version', 'Print snapme version') do
+            options[:show_version] = true
           end
         end.parse!(args)
 
