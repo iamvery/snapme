@@ -5,6 +5,11 @@ module Snapme
         options    = Options.parse(args)
         auth_token = ENV['SNAPME_AUTH_TOKEN']
 
+        if options.kill
+          `killall snapme`
+          return
+        end
+
         if options.show_version
           puts Snapme::Version
           return
