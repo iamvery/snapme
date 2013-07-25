@@ -1,12 +1,15 @@
 module Snapme
   module CLI
     class Command
+      def self.command_name
+        'snapme'
+      end
       def self.start(args)
         options    = Options.parse(args)
         auth_token = ENV['SNAPME_AUTH_TOKEN']
 
         if options.kill
-          `killall snapme`
+          `killall #{command_name}`
           return
         end
 
